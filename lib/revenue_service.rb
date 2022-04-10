@@ -8,9 +8,9 @@ class RevenueService
 
     return 0 if before_contract?(signed_on, check_date)
 
-    return contract.price if contract.category_name == "ワードプロセッサ" || thirty_days_after_contract?(signed_on, check_date)
+    return contract.product.price if contract.product.category_name == "ワードプロセッサ" || thirty_days_after_contract?(signed_on, check_date)
 
-    (contract.price / 3 * 2) + contract.price % 3
+    (contract.product.price / 3 * 2) + contract.product.price % 3
   end
 
   private
